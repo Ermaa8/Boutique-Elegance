@@ -30,7 +30,10 @@ SECRET_KEY = 'django-insecure-oimevylh0&18b38n@!qh+cst#%(2#ix+wqd=@28(md9i-26y89
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["8000-ermaa8-boutiqueelegance-5g9keu2pi2i.ws.codeinstitute-ide.net"]
+ALLOWED_HOSTS = [
+    "8000-ermaa8-boutiqueelegance-5g9keu2pi2i.ws.codeinstitute-ide.net",
+    "Ermaa8-boutique-elegance.herokuapp.com"
+]
 
 
 # Application definition
@@ -123,15 +126,29 @@ WSGI_APPLICATION = 'boutique_elegance.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+
 #DATABASES = {
-#   'default': {
-#      'ENGINE': 'django.db.backends.sqlite3',
-#       'NAME': BASE_DIR / 'db.sqlite3',
-#   }
+#  'default': {
+#     'ENGINE': 'django.db.backends.sqlite3',
+#      'NAME': BASE_DIR / 'db.sqlite3',
+#  }
 #}
 
 DATABASES = {
-     'default': dj_database_url.parse('postgres://u7iohjhjbyu:mgZe7AtOnBV8@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/earth_faced_elf_808805')
+    'default': dj_database_url.parse('postgres://u7iohjhjbyu:mgZe7AtOnBV8@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/earth_faced_elf_808805')
 }
     
 

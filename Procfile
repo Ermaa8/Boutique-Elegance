@@ -1,0 +1,1 @@
+web: gunicorn boutique_elegance.wsgi:application
