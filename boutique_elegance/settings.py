@@ -141,16 +141,16 @@ else:
     }
 
 
-DATABASES = {
-  'default': {
-     'ENGINE': 'django.db.backends.sqlite3',
-      'NAME': BASE_DIR / 'db.sqlite3',
-  }
-}
-
 #DATABASES = {
-#    'default': dj_database_url.parse('postgres://u7iohjhjbyu:mgZe7AtOnBV8@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/earth_faced_elf_808805')
+#  'default': {
+#     'ENGINE': 'django.db.backends.sqlite3',
+#      'NAME': BASE_DIR / 'db.sqlite3',
+#  }
 #}
+
+DATABASES = {
+    'default': dj_database_url.parse('postgres://u7iohjhjbyu:mgZe7AtOnBV8@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/earth_faced_elf_808805')
+}
     
 
 
