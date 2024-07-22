@@ -33,7 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "8000-ermaa8-boutiqueelegance-5g9keu2pi2i.ws.codeinstitute-ide.net",
-    "herokuapp.com"
+    "boutique-elegance-2a9bf0a13a37.herokuapp.com"
 ]
 
 
