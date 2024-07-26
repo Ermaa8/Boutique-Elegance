@@ -23,6 +23,15 @@
             <hr class="w-50 mb-1">
         </div>
     </div>
+    <h1>{{ outfit.name }}</h1>
+    <ul>
+        {% for product in outfit.products.all %}
+            <li>
+                {{ product.name }} - Original Price: ${{ product.price }} - Discounted Price: ${{ product.get_discounted_price }}
+            </li>
+        {% endfor %}
+    </ul>
+    <p>Total Price: ${{ total_price }}</p>
     <div class="row">
         <div class="product-container col-10 offset-1">
             <div class="row mt-1 mb-2">

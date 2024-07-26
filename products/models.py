@@ -28,3 +28,48 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+class Outfit(models.Model):
+    name = models.CharField(max_length=254)
+    products = models.ManyToManyField(Product, through='OutfitProduct')
+    categories = models.ManyToManyField(Category, through='OutfitCategory')
+
+    def __str__(self):
+        return self.name
+
+    def get_discounted_price(self):
+        if self.category and self.category.discount_percentage:
+            discount = (self.price * self.category.discount_percentage) / 100
+            return self.price - discount
+        return self.price
+
+
+class Outfit(models.Model):
+    name = models.CharField(max_length=254)
+    products = models.ManyToManyField(Product, through='OutfitProduct')
+    categories = models.ManyToManyField(Category, through='OutfitCategory')
+
+    def __str__(self):
+        return self.name
+
+    def get_total_price(self):
+        total = sum(product.get_discounted_price() for product in self.products.all())
+        return total
+
+
+class OutfitProduct(models.Model):
+    outfit = models.ForeignKey(Outfit, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('outfit', 'product')
+
+
+class OutfitCategory(models.Model):
+    outfit = models.ForeignKey(Outfit, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('outfit', 'category')
