@@ -1,12 +1,12 @@
 from django.db import models
 
 class Category(models.Model):
-
     class Meta:
         verbose_name_plural = 'Categories'
         
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    discount_percentage = models.DecimalField(max_digits=5, decimal_places=2, default=0)
 
     def __str__(self):
         return self.name
@@ -29,14 +29,6 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-class Outfit(models.Model):
-    name = models.CharField(max_length=254)
-    products = models.ManyToManyField(Product, through='OutfitProduct')
-    categories = models.ManyToManyField(Category, through='OutfitCategory')
-
-    def __str__(self):
-        return self.name
-
     def get_discounted_price(self):
         if self.category and self.category.discount_percentage:
             discount = (self.price * self.category.discount_percentage) / 100
@@ -44,16 +36,26 @@ class Outfit(models.Model):
         return self.price
 
 
+class OutfitCategory(models.Model):
+    name = models.CharField(max_length=254)
+    discount_value = models.DecimalField(max_digits=5, decimal_places=2, default=0)  # Discount value in percentage
+
+    def __str__(self):
+        return self.name
+
+
 class Outfit(models.Model):
     name = models.CharField(max_length=254)
+    category = models.ForeignKey(OutfitCategory, on_delete=models.CASCADE)  # Updated to use OutfitCategory
     products = models.ManyToManyField(Product, through='OutfitProduct')
-    categories = models.ManyToManyField(Category, through='OutfitCategory')
 
     def __str__(self):
         return self.name
 
     def get_total_price(self):
         total = sum(product.get_discounted_price() for product in self.products.all())
+        if self.category.discount_value:
+            total -= (total * self.category.discount_value) / 100
         return total
 
 
@@ -64,12 +66,4 @@ class OutfitProduct(models.Model):
 
     class Meta:
         unique_together = ('outfit', 'product')
-
-
-class OutfitCategory(models.Model):
-    outfit = models.ForeignKey(Outfit, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    date_added = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        unique_together = ('outfit', 'category')
+    

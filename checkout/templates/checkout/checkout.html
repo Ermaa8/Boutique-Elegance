@@ -69,6 +69,21 @@
                         <p class="my-0">${{ delivery | floatformat:2 }}</p>
                         <p class="my-0"><strong>${{ grand_total | floatformat:2 }}</strong></p>
                     </div>
+                    <div class="container">
+                        <h1 class="outfit-name">{{ outfit.name }}</h1>
+                        <ul class="product-list">
+                            {% for product in outfit.products.all %}
+                                <li>
+                                    <span class="product-name">{{ product.name }}</span><br>
+                                    <span class="product-price">Original Price: ${{ product.price }}</span><br>
+                                    <span class="discounted-price">Discounted Price: ${{ product.get_discounted_price }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="total-price">
+                            Total Price after {{ outfit.category.discount_value }}% discount: ${{ outfit.get_total_price }}
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-12 col-lg-6">

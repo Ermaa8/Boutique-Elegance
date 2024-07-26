@@ -4,10 +4,16 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Category, Product, Outfit, OutfitProduct, OutfitCategory
+from .models import Product, Category, Outfit, OutfitProduct
 from .forms import ProductForm
+from .models import Outfit
+
 
 # Create your views here.
+
+def outfit_detail(request, outfit_id):
+    outfit = get_object_or_404(Outfit, pk=outfit_id)
+    return render(request, 'outfit_detail.html', {'outfit': outfit})
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
@@ -144,22 +150,3 @@ def outfit_detail(request, outfit_id):
     total_price = outfit.get_total_price()
     return render(request, 'outfit_detail.html', {'outfit': outfit, 'total_price': total_price})
 
-# Create categories
-summer = Category.objects.create(name="Summer Collection")
-winter = Category.objects.create(name="Winter Wear")
-
-# Create products
-product1 = Product.objects.create(name="Arizona Super-Skinny Jeans", price=50.99)
-product2 = Product.objects.create(name="Champion Jersey Tee", price=20.00)
-
-# Create an outfit
-outfit1 = Outfit.objects.create(name="Summer Outfit")
-outfit2 = Outfit.objects.create(name="Winter Outfit")
-
-# Link products to outfits
-OutfitProduct.objects.create(outfit=outfit1, product=product1)
-OutfitProduct.objects.create(outfit=outfit2, product=product2)
-
-# Link outfits to categories
-OutfitCategory.objects.create(outfit=outfit1, category=summer)
-OutfitCategory.objects.create(outfit=outfit2, category=winter)
