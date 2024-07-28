@@ -44,10 +44,9 @@ class OutfitCategory(models.Model):
         return self.name
 
 
-class Outfit(models.Model):
-    name = models.CharField(max_length=254)
-    category = models.ForeignKey(OutfitCategory, on_delete=models.CASCADE)  # Updated to use OutfitCategory
-    products = models.ManyToManyField(Product, through='OutfitProduct')
+class Outfit(Product):
+    outfit_category = models.ForeignKey(OutfitCategory, on_delete=models.CASCADE, null=True)  # Updated to use OutfitCategory
+    products = models.ManyToManyField(Product, related_name="product_list", null=True)
 
     def __str__(self):
         return self.name
@@ -57,13 +56,3 @@ class Outfit(models.Model):
         if self.category.discount_value:
             total -= (total * self.category.discount_value) / 100
         return total
-
-
-class OutfitProduct(models.Model):
-    outfit = models.ForeignKey(Outfit, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    date_added = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        unique_together = ('outfit', 'product')
-    
