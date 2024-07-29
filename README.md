@@ -4,7 +4,7 @@ Boutique Elegance is a webshop desined for clothes, shoes, bath & bed, kitchen, 
 
 The payment system for this site uses Stripe. Please note that this website is for educational purposes do not enter any personal credit/debit card details when using the site.
 
-The live link can be found here - 
+![Boutique Elegance](pictures/devices.png)
 
 ## User Experience (UX)
 
@@ -121,6 +121,10 @@ Custom Error Pages were created to give the user more information on the error a
 - When user clicks on the product, every detail of specific product is shown on the screen.
 - If the user is a superuser, edit and delete buttons will appear below these details.
 
+### Product menagment
+
+- In this part of the web shop is possible for superuser to add product, images, sizes etc.
+
 **Edit Product**
 - The superuser can choose to edit a Product by clicking the edit button on the product card or on the product detail page. 
 - The form opens with all fields populated with the original content.
@@ -162,6 +166,215 @@ Custom Error Pages were created to give the user more information on the error a
 This page summarises the completed order.
 - An email will be sent to the user with their order confirmation
 - At the end of the summary is a 'Keep Shopping' button.
+
+## Error Pages
+
+![403 error]
+- Custom error pages are made to show up when it is not possible to enter a page and with that navigate user to the website again.
+- 400 Bad Request - Fresh Nest is unable to handle this request.
+- 403 Page Forbidden - Looks like you're trying to access forbidden content. Please log out and sign in to the correct account.
+- 404 Page Not Found - The page you're looking for doesn't exist.
+- 500 Server Error - Due to an internal error we are unable to process this request.
+
+## Business Model
+
+- Boutique Elegance is a web shop mostly desined for adult people that are interested in clothes, homewear, activewear, kitchen and bath supplies.
+
+## Marketing Strategy
+- A number of different marketing strategies have been utilised to promote Boutique Elegance including SEO and social media marketing.
+
+### SEO
+Several SEO techniques were undertaken in order to ensure the site ranks highly in search engine results:
+
+**Keywords:** 
+
+A mixture of short tail and long tail keywords were carefully considered for the site. Keyword research was performed by checking Google search results, looking at competitor's keywords and by utilising wordtracker.com. 
+
+An initial list of topics and keywords generated can be seen below. This list was then refined based on relevance and authority.
+
+The most relevant keywords have been added to the site's meta-keywords and meta-description. These keywords have also been carefully included in page titles, headings, site content, `<strong></strong>` tags, image alt attributes and anchor tag links across the site. 
+
+## Deployment - Heroku
+- To deploy this page to Heroku from its GitHub repository, the following steps were taken.
+### Create the Heroku App:
+- Log in to Heroku and create account.
+- On the main page click the button labelled New in the top right corner and from the drop-down menu select "Create New App".
+- Enter a unique and meaningful app name.
+- Select your region and click create app.
+
+### Attach the Postgres database:
+- In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
+- Copy the DATABASE_URL located in Config Vars in the Settings Tab.
+
+### Attach the Postgres database:
+- In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
+- Copy the DATABASE_URL located in Config Vars in the Settings Tab.
+- Go back to your IDE and install 2 more requirements:
+    - `pip3 install dj_databse_url`
+    - `pip3 install psycopg2-binary` 
+- Create requirements.txt file by typing `pip3 freeze --local > requirements.txt`
+- Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file. 
+- In settings.py file import dj_database_url, comment out the default configurations within database settings and add the following: 
+
+```
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
+```
+- Run migrations and create a superuser for the new database. 
+- Create an if statement in settings.py to run the postgres database when using the app on heroku or sqlite if not
+
+```
+    if 'DATABASE_URL' in os.environ:
+        DATABASES = {
+            'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+    else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+    }
+```
+
+- Create requirements.txt file by typing `pip3 freeze --local > requirements.txt`
+- Create a file named "Procfile" in the main directory and add the following: `web: gunicorn project-name.wsgi:application`
+- Add Heroku to the ALLOWED_HOSTS list in settings.py in the format ['app_name.heroku.com', 'localhost']
+
+- Push these changes to Github.
+
+### Update Heroku Config Vars:
+- Heroku vars should look like this:
+ 
+ AWS_ACCESS_KEY_ID      AWS CSV file                                               
+ AWS_SECRET_ACCESS_KEY  AWS CSV file                                               
+ DATABASE_URL           Postgres generated                                        
+ EMAIL_HOST_PASS        Password from email client                                                    
+ EMAIL_HOST_USER        Site's email address                                                          
+ SECRET_KEY             Random key generated as above                                                 
+ STRIPE_PUBLIC_KEY      Stripe Dashboard > Developers tab > API Keys > Publishable key                
+ STRIPE_SECRET_KEY      Stripe Dashboard > Developers tab > API Keys > Secret key                     
+ STRIPE_WH_SECRET       Stripe Dashboard > Developers tab > Webhooks > site endpoint > Signing secret 
+ USE_AWS                True (when AWS set up - instructions below)                                   
+
+
+### Deploy
+
+- For every deployment DEBUG= False in settings.py.
+- On deploy tab on Heroku connect your project to Heroku.
+- Scroll down and deploy page manually.
+- Click view.
+
+## AWS Set Up
+### AWS S3 Bucket
+- Create an AWS account.
+- From the 'Services' tab on the AWS Management Console, search 'S3' and select it.
+- Click 'Create a new bucket', give it a name(match your Heroku app name if possible), and choose the region closest to you.
+- Under 'Object Ownership' select 'ACLs enabled' and leave the Object Ownership as Bucket owner preferred.
+- Uncheck block all public access and acknowledge that the bucket will be public.
+- Click 'Create bucket'.
+
+### Connecting S3 to Django 
+### IAM
+- From the 'Services' menu, search IAM and select it.
+- Once on the IAM page, click 'User Groups' from the side bar, then click 'Create group'. Choose a name and click 'Create'.
+- Go to 'Policies', click 'Create New Policy'. Go to the 'JSON' tab and click 'Import Managed Policy'. 
+- Search 'S3' and select 'AmazonS3FullAccess'. Click 'Import'.
+- Get the bucket ARN from 'S3 Permissions' as per above.
+- Delete the '*' from the 'Resource' key and add the following code into the area:
+
+```
+"Resource": [
+    "YOUR-ARN-NO-HERE",
+    "YOUR-ARN-NO-HERE/*"
+]
+```
+
+- Click 'Next Tags' > 'Next Review' and then provide a name and description and click 'Create Policy'.
+- Click'User Groups' and open the created group. Go to the 'Permissions' tab and click 'Add Permissions' and then 'Attach Policies'.
+- Search for the policy you created and click 'Add Permissions'.
+- You need to create a user to put in the group. Select users from the sidebar and click 'Add user'.
+- Give your user a user name, check 'Programmatic Access'.
+- Click 'Next' and select the group you created.
+- Keep clicking 'Next' until you reach the 'Create user' button and click that.
+- Download the CSV file which contains the AWS_SECRET_ACCESS_KEY and your AWS_ACCESS_KEY_ID needed in the Heroku variables as per above list and also in your env.py.
+
+
+### Connecting S3 to Django 
+- Go back to your IDE and install 2 more requirements:
+    - `pip3 install boto3`
+    - `pip3 install django-storages` 
+- Update your requirements.txt file by typing `pip3 freeze --local > requirements.txt` and add storages to your installed apps.
+- Create an if statement in settings.py 
+
+```
+if 'USE_AWS' in os.environ:
+    AWS_STORAGE_BUCKET_NAME = 'insert-your-bucket-name-here'
+    AWS_S3_REGION_NAME = 'insert-your-region-here'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
+```
+- Then add the line 
+
+    - `AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'` to tell django where our static files will be coming from in production.
+
+
+- Create a file called custom storages and import both our settings from django.con as well as the s3boto3 storage class from django storages. 
+- Create the following classes:
+
+```
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+```
+
+- In settings.py add the following inside the if statement:
+
+```
+STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+STATICFILES_LOCATION = 'static'
+DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIAFILES_LOCATION = 'media'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+```
+
+- and then add the following at the top of the if statement:
+```
+AWS_S3_OBJECT_PARAMETERS = {
+    'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+    'CacheControl': 'max-age=94608000',
+}
+```
+
+- Go to S3, go to your bucket and click 'Create folder'. Name the folder 'media' and click 'Save'.
+- Inside the folder, click 'Upload', 'Add files', and then select all the images that you are using for your site.
+- Then under 'Permissions' select the option 'Grant public-read access' and click upload.
+- Your static files and media files should be automatically linked from django to your S3 bucket.
+
+## Languages
+
+- Python
+- HTML
+- CSS
+- Javascript
+
+## Frameworks - Libraries - Programs Used
+
+## Credits
+
+
+## Acknowledgments
+- Thanks to my mentor Antonio for his support and advice. Thanks to The Code Institute slack community for their quick responses and very helpful feedback.
+
+
+
+
 
 
 
