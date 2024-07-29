@@ -51,8 +51,6 @@ A visitor to Fresh Nest would be someone who is most likely an adult who is inte
 #### Imagery
 There is only one main static image on the site which is background picture of a webshop on a main page. All of the pictures are there to show a prduct.
 
-#### Wireframes
-
 ## Security Features and Defensive Design
 ### User Authentication
 
@@ -90,34 +88,27 @@ Custom Error Pages were created to give the user more information on the error a
 
 ### User Account Pages
 **Sign Up**
-
-![Sign Up]
-
+![Sign Up](pictures/signup.png)
 **Sign In**
-
-![Sign In]
-
-**Log Out**
-
-![Log Out]
+![Sign In](pictures/signin.png)
 
 ### Profile
 **Delivery Details**
 
-![Delivery Details]
+![Delivery Details](pictures/delivery.png)
 - The delivery details section shows user's adress and phone number.
 - The information provided here is used to autofill the delivery address when placing an order.
 
 **Order History**
 
-![Order History]
+![Order History](pictures/order.png)
 - The order history section displays a list of every order the user has placed.
 - The table displays the order number, date it was ordered and the order total.
 - Clicking the order number will take the user to a summary page of that order.
 
 ### Product Detail
 
-![Product Detail]
+![Product Detail](pictures/product.png)
 - When user clicks on the product, every detail of specific product is shown on the screen.
 - If the user is a superuser, edit and delete buttons will appear below these details.
 
@@ -130,17 +121,6 @@ Custom Error Pages were created to give the user more information on the error a
 - The form opens with all fields populated with the original content.
 - If a user tries to add a product (by changing the url) without being a superuser they are redirected to a custom 403 page.
 
-**Delete Product**
-
-![delete product]
-- The superuser can choose to delete a Product by clicking the delete button on the product card or on the product detail page. 
-- The superuser is asked to confirm if they wish to delete the product or cancel.
-- If products are successfully deleted a superuser will recive a message. 
-
-### Checkout 
-
-![checkout]
-
 **Details**
 - In the details section the user can fill out their contact details, delivery address, and card number.
 - If the user is a guest, a link to create an account or login will be present.
@@ -149,7 +129,6 @@ Custom Error Pages were created to give the user more information on the error a
 - If a user leaves a required field empty, inputs whitespace in a required field or includes text in the phone number field an error message will prompt the user to 'Fill in the field' or 'match the format requested'.
 
 **Order Summary**
-
 - The order summary section details all the items about to be purchased, along with the quantity, subtotal and a grand total.
 - Clicking the product image in the summary will take the user to that product's detail page.
 
@@ -161,7 +140,7 @@ Custom Error Pages were created to give the user more information on the error a
 
 **Confirmation**
 
-![Order_confirmation]
+![Order_confirmation](pictures)
 - Once order has been placed and processed the user is taken to the checkout success page.
 This page summarises the completed order.
 - An email will be sent to the user with their order confirmation
