@@ -155,12 +155,18 @@ This page summarises the completed order.
 - 404 Page Not Found - The page you're looking for doesn't exist.
 - 500 Server Error - Due to an internal error we are unable to process this request.
 
+#### Wireframes
+![Wireframe page](pictures/wireframes.png)
+
 ## Business Model
 
 - Boutique Elegance is a web shop mostly desined for adult people that are interested in clothes, homewear, activewear, kitchen and bath supplies.
 
 ## Marketing Strategy
 - A number of different marketing strategies have been utilised to promote Boutique Elegance including SEO and social media marketing.
+
+Facebook wireframe page of Boutique elegance can be found bellow.
+![Facebook](pictures/facebook.png)
 
 ### SEO
 Several SEO techniques were undertaken in order to ensure the site ranks highly in search engine results:
@@ -169,7 +175,21 @@ Several SEO techniques were undertaken in order to ensure the site ranks highly 
 
 A mixture of short tail and long tail keywords were carefully considered for the site. Keyword research was performed by checking Google search results, looking at competitor's keywords and by utilising wordtracker.com. 
 
-An initial list of topics and keywords generated can be seen below. This list was then refined based on relevance and authority.
+A list of keywords can be found bellow:
+- Elegant
+- Boutique
+- Elegance
+- Products
+- Homewear
+- Luxury design
+- Desiner clothes
+- Price
+- Home decor
+- Home improvment
+- Bath decor
+- Bath
+- Gym
+- Active wear
 
 The most relevant keywords have been added to the site's meta-keywords and meta-description. These keywords have also been carefully included in page titles, headings, site content, `<strong></strong>` tags, image alt attributes and anchor tag links across the site. 
 
