@@ -140,7 +140,7 @@ Custom Error Pages were created to give the user more information on the error a
 
 **Confirmation**
 
-![Order_confirmation](pictures)
+![Order_confirmation](pictures/order.png)
 - Once order has been placed and processed the user is taken to the checkout success page.
 This page summarises the completed order.
 - An email will be sent to the user with their order confirmation
@@ -148,7 +148,6 @@ This page summarises the completed order.
 
 ## Error Pages
 
-![403 error]
 - Custom error pages are made to show up when it is not possible to enter a page and with that navigate user to the website again.
 - 400 Bad Request - Fresh Nest is unable to handle this request.
 - 403 Page Forbidden - Looks like you're trying to access forbidden content. Please log out and sign in to the correct account.
