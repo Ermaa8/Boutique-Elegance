@@ -364,8 +364,30 @@ AWS_S3_OBJECT_PARAMETERS = {
 - Javascript
 
 ## Frameworks - Libraries - Programs Used
+- [Django](https://www.djangoproject.com/)
+- [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+- [JQuery](https://jquery.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [SQLite](https://www.sqlite.org/index.html)
+- [Stripe](https://stripe.com/ie)
+- [AWS](https://aws.amazon.com/?nc2=h_lg)
+- [Heroku](https://dashboard.heroku.com/login)
+- [Responsinator](http://www.responsinator.com/)
+- [Balsamiq](https://balsamiq.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [GitHub](https://github.com/)
+- [Google Fonts](https://fonts.google.com/)
+- [W3C](https://www.w3.org/)
+- [Jshint](https://jshint.com/)
+- [Sitemap Generator](www.xml-sitemaps.com)
 
 ## Credits
+- [W3Schools](https://www.w3schools.com/)
+- [Django Docs](https://docs.djangoproject.com/en/4.0/)
+- [Bootstrap 4.6 Docs](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- [Stack Overflow](https://stackoverflow.com/)
+- [Code Institute - Boutique Ado Walkthrough Project](https://github.com/Code-Institute-Solutions/boutique_ado_v1)
+- [Code Institute- Fresh nest project](https://github.com/AliOKeeffe/PP5-Fresh-Nest/blob/main/README.md?plain=1)
 
 
 ## Acknowledgments
