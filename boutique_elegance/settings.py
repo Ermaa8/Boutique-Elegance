@@ -25,14 +25,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'dango-insecure-oimevylh0&18b38n@!qh+cst#%(2#ix+wqd=@28(md9i-26y89'
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "8000-ermaa8-boutiqueelegance-5g9keu2pi2i.ws.codeinstitute-ide.net",
+    "8000-ermaa8-boutiqueelegance-ouisbgo81oi.ws.codeinstitute-ide.net",
     "boutique-elegance-2a9bf0a13a37.herokuapp.com"
 ]
 
@@ -148,7 +149,7 @@ else:
 #}
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://u7iohjhjbyu:mgZe7AtOnBV8@ep-gentle-mountain-a23bxz6h.eu-central-1.aws.neon.tech/earth_faced_elf_808805')
+    'default': dj_database_url.parse('postgres://u7iohjhjbyu:mgZe7AtOnBV8@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/smirk_thud_scale_737762')
 }
 
 # Password validation

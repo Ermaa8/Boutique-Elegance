@@ -51,8 +51,3 @@ class Outfit(Product):
     def __str__(self):
         return self.name
 
-    def get_total_price(self):
-        total = sum(product.get_discounted_price() for product in self.products.all())
-        if self.category.discount_value:
-            total -= (total * self.category.discount_value) / 100
-        return total
