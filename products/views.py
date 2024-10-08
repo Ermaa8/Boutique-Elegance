@@ -72,6 +72,9 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    outfit = Outfit.objects.filter(pk=product_id)
+    if len(outfit) > 0:
+        product = outfit[0]
 
     context = {
         'product': product,

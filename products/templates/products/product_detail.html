@@ -15,6 +15,23 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
+                    {% if product.products %}
+                        {% for product in product.products.all %}
+                            <div class="row">
+                                <h3>{{product.name}}</h3>
+                                {% if product.image %}
+                                    <a href="{{ product.image.url }}" target="_blank"></a>
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    </a>
+                                    {% else %}
+                                    <a href="">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    </a>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+
+                    {% else %}
                     {% if product.image %}
                         <a href="{{ product.image.url }}" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
@@ -23,6 +40,7 @@
                         <a href="">
                             <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         </a>
+                    {% endif %}
                     {% endif %}
                 </div>
             </div>
