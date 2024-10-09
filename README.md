@@ -156,10 +156,11 @@ This page summarises the completed order.
 
 #### Wireframes
 ![Wireframe page](pictures/wireframes.png)
+![Product wireframe page](pictures/Wireframe2.png)
 
 ## Business Model
 
-- Boutique Elegance is a web shop mostly desined for adult people that are interested in clothes, homewear, activewear, kitchen and bath supplies.
+- Boutique Elegance is a web shop mostly desined for adult people that are interested in clothes, homewear, activewear, kitchen and bath supplies. In this webshop users can find a different product and different outfits that are made of those products for better price. That is part of the web site that makes it unique.
 
 ## Marketing Strategy
 - A number of different marketing strategies have been utilised to promote Boutique Elegance including SEO and social media marketing.
