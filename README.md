@@ -8,7 +8,7 @@ The payment system for this site uses Stripe. Please note that this website is f
 
 ## User Experience (UX)
 
-A visitor to Fresh Nest would be someone who is most likely an adult who is interested in buying clothes, homewear, activewear, kicthen devices etc.
+A visitor of Boutique elegance is most likely someone who is interested in mode and fashion.
 
 ### User Stories
 
@@ -256,6 +256,35 @@ DATABASES = {
  STRIPE_WH_SECRET       Stripe Dashboard > Developers tab > Webhooks > site endpoint > Signing secret 
  USE_AWS                True (when AWS set up - instructions below)                                   
 
+# Testing
+
+- [User Story Testing](#user-story-testing)
+- [Validator Testing](#validator-testing)
+  * [HTML](#html)
+  * [CSS](#css)
+  * [JSHINT](#jshint)
+  * [Python Validation - Pycodestyle](#python-validation---pycodestyle)
+
+## User Story Testing (pictures)
+
+Every part of user story testing is provided with a pictures:
+
+### EPIC | Viewing and Navigation
+![Home page](pictures/Testing1.png)
+![Product Managment](pictures/Testing2.png)
+![Products](pictures/Testing3.png)
+![Product details](pictures/Testing4.png)
+![Search](pictures/Testing5.png)
+![Sorting](pictures/Testing6.png)
+
+### EPIC | Purchasing
+![Total cost, summary of shopping card,](pictures/Testing7.png)
+![Checkout](pictures/Testing8.png)
+
+### EPIC | Admin & Store Management
+![Admin](pictures/Testing9.png)
+![Admin](pictures/Testing9.png)
+![Admin Editing](pictures/Testing10.png)
 
 ### Deploy
 
