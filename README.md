@@ -411,6 +411,9 @@ AWS_S3_OBJECT_PARAMETERS = {
 - CSS
 - Javascript
 
+## Bugs 
+- Many issues were discovered during this project. During a resubmition deadline new data base needed to be made and settings.py file owns sensitive information and that's because deployment and functionalities of the project are not availible if different. This bug could not be fixed despite tips from tutors. Increase of knowledge from a student side is necessary for ths bug to be fixed and it is definitely something that will be taken further in the education. Fixed bug for this project was deployment. In the beggining deployment was not availible, talking to tutors new version of django was installed. 
+
 ## Frameworks - Libraries - Programs Used
 - [Django](https://www.djangoproject.com/)
 - [Django-allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
