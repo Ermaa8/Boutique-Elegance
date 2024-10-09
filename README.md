@@ -263,7 +263,6 @@ DATABASES = {
   * [HTML](#html)
   * [CSS](#css)
   * [JSHINT](#jshint)
-  * [Python Validation - Pycodestyle](#python-validation---pycodestyle)
 
 ## User Story Testing (pictures)
 
@@ -285,6 +284,26 @@ Every part of user story testing is provided with a pictures:
 ![Admin](pictures/Testing9.png)
 ![Admin](pictures/Testing9.png)
 ![Admin Editing](pictures/Testing10.png)
+
+## Validator testing
+### HTML testing
+- During this test several errors and warning were noticed, however inspiration for this code was taken from walkthrought project. Some of the error are shown in pictures bellow text:
+
+![Checkout.html](pictures/Testing11.png)
+![Base.html](pictures/Testing12.png)
+
+### CSS testing 
+- No errors are shown for CSS testing
+![Base.css](pictures/Testing13.png)
+![Checkout.css](pictures/Testing14.png)
+![Profile.css](pictures/Testing15.png)
+
+### JavaScript testing
+- Some error were noticed in JavaScript testing
+![Checkout](pictures/Testing16.png)
+![Profiles](pictures/Testing17.png)
+
+- Every part of a website was tested manualy and every manual testing was done with no issues discovered.
 
 ### Deploy
 
