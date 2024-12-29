@@ -149,8 +149,9 @@ else:
 #}
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://u7iohjhjbyu:mgZe7AtOnBV8@ep-gentle-mountain-a23bxz6h-pooler.eu-central-1.aws.neon.tech/smirk_thud_scale_737762')
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
