@@ -284,7 +284,7 @@ Every part of user story testing is provided with a pictures:
 
 ### ERD diagram
 - ERD diagram is presenting websites database
-![ERD](pictures/erddiagram.png)
+![ERD](media/erddiagram.png)
 
 ## Validator testing
 ### HTML testing
