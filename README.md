@@ -405,14 +405,17 @@ AWS_S3_OBJECT_PARAMETERS = {
 - Your static files and media files should be automatically linked from django to your S3 bucket.
 
 ## Languages
-
 - Python
 - HTML
 - CSS
 - Javascript
 
 ## Bugs 
-- Many issues were discovered during this project. During a resubmition deadline new data base needed to be made and settings.py file owns sensitive information and that's because deployment and functionalities of the project are not availible if different. This bug could not be fixed despite tips from tutors. Increase of knowledge from a student side is necessary for ths bug to be fixed and it is definitely something that will be taken further in the education. Fixed bug for this project was deployment. In the beggining deployment was not availible, talking to tutors new version of django was installed. 
+- Many issues were discovered during this project. During a resubmition deadline new data base needed to be made and settings.py file owns sensitive information and that's because deployment and functionalities of the project are not availible if different. This bug could not be fixed despite tips from tutors. Increase of knowledge from a student side is necessary for ths bug to be fixed and it is definitely something that will be taken further in the education. Fixed bug for this project was deployment. In the beggining deployment was not availible, talking to tutors new version of django was installed. Second bug for this project is that pictuser on deployed project in Heroku are not visible. Some of the pictures doesn't uppload on deployed project. Pictures are controlled so that they match with project opened in a browser. 
+
+## Future development 
+- For the future development many things need to be improved. From a correct django package to upploading pictures in deployed project. Backend developing is a complicated for begginers. To ensure continuous improvement of the e-commerce platform, several key areas have been identified for future development. First, enhancing user expirience to make a shopping journey seamless.
+For the future development it would be necessary to improve cooperation between heroku and coding programm/browser. 
 
 ## Frameworks - Libraries - Programs Used
 - [Django](https://www.djangoproject.com/)
