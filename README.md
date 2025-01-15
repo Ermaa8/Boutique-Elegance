@@ -184,9 +184,6 @@ A list of keywords can be found bellow:
 - Luxury design
 - Desiner clothes
 - Price
-- Home decor
-- Home improvment
-- Bath decor
 - Bath
 - Gym
 - Active wear
@@ -266,43 +263,46 @@ DATABASES = {
   * [JSHINT](#jshint)
 
 ## User Story Testing (pictures)
-
 Every part of user story testing is provided with a pictures:
 
 ### EPIC | Viewing and Navigation
-![Home page](pictures/Testing1.png)
-![Product Managment](pictures/Testing2.png)
-![Products](pictures/Testing3.png)
-![Product details](pictures/Testing4.png)
-![Search](pictures/Testing5.png)
-![Sorting](pictures/Testing6.png)
+![Home page](pictures/testing1.png)
+![Product Managment](pictures/testing2.png)
+![Products](pictures/testing3.png)
+![Product details](pictures/testing4.png)
+![Search](pictures/testing5.png)
+![Sorting](pictures/testing6.png)
 
 ### EPIC | Purchasing
-![Total cost, summary of shopping card,](pictures/Testing7.png)
-![Checkout](pictures/Testing8.png)
+![Total cost, summary of shopping card,](pictures/testing7.png)
+![Checkout](pictures/testing8.png)
 
 ### EPIC | Admin & Store Management
-![Admin](pictures/Testing9.png)
-![Admin](pictures/Testing9.png)
-![Admin Editing](pictures/Testing10.png)
+![Admin](pictures/testing9.png)
+![Admin](pictures/testing9.png)
+![Admin Editing](pictures/testing10.png)
+
+### ERD diagram
+- ERD diagram is presenting websites database
+![ERD](pictures/erddiagram.png)
 
 ## Validator testing
 ### HTML testing
 - During this test several errors and warning were noticed, however inspiration for this code was taken from walkthrought project. Some of the error are shown in pictures bellow text:
 
-![Checkout.html](pictures/Testing11.png)
-![Base.html](pictures/Testing12.png)
+![Checkout.html](pictures/testing11.png)
+![Base.html](pictures/testing12.png)
 
 ### CSS testing 
 - No errors are shown for CSS testing
-![Base.css](pictures/Testing13.png)
-![Checkout.css](pictures/Testing14.png)
-![Profile.css](pictures/Testing15.png)
+![Base.css](pictures/testing13.png)
+![Checkout.css](pictures/testing14.png)
+![Profile.css](pictures/testing15.png)
 
 ### JavaScript testing
 - Some error were noticed in JavaScript testing
-![Checkout](pictures/Testing16.png)
-![Profiles](pictures/Testing17.png)
+![Checkout](pictures/testing16.png)
+![Profiles](pictures/testing17.png)
 
 - Every part of a website was tested manualy and every manual testing was done with no issues discovered.
 
